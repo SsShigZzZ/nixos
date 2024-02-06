@@ -12,22 +12,22 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a1147441-c5ba-41eb-82c8-b01872035ee8";
+    { device = "/dev/mapper/vg0-root";
       fsType = "btrfs";
     };
 
   fileSystems."/var" =
-    { device = "/dev/disk/by-uuid/1ad36871-3ecd-4cf9-86f5-bfe33f499c45";
+    { device = "/dev/mapper/vg0-var";
       fsType = "btrfs";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/550fd817-b45f-485f-ac58-77c78bc78ed1";
+    { device = "/dev/mapper/vg0-home";
       fsType = "btrfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CB17-7FC3";
+    { device = "/dev/sda1";
       fsType = "vfat";
     };
 
