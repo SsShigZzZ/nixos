@@ -24,7 +24,7 @@
     startAgent = true;
     knownHosts = {
       desktop = {
-        publicKeyFile = ./files/ssh/pubkeys/desktop.pub;
+        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7CcO8lHIdYLapCeE80Z1c/MviMv+7F8e3yCmH8RjTF MattPask";
       };
     };
   };
