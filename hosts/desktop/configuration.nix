@@ -3,7 +3,7 @@
 {
   imports =
     [ 
-      ./hardware-configuration.nix
+      ./hardware.nix
     ];
 
   environment.systemPackages = with pkgs;
