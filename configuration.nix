@@ -3,9 +3,7 @@
 {
   imports =
     [ 
-      ./linked-configuration.nix
-      ./linked-hardware.nix
-      ./linked-role.nix
+      ./hardware-configuration.nix
     ];
 
   environment.systemPackages = with pkgs;
