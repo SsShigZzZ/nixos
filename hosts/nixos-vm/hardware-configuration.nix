@@ -19,7 +19,7 @@
       kernelModules = [ ];
       extraModulePackages = [ ];
       luks.devices."p0_d0" = {
-        device = "/dev/by-label/luks";
+        device = "/dev/by-label/p0_d0";
         allowDiscards = true;
       };
     };
