@@ -10,6 +10,7 @@
     kernelModules = [ ];
     extraModulePackages = [ ];
     initrd = {
+      kernelModules = [ dm-snapshot ];
       availableKernelModules = [
         "ata_piix"
         "ohci_pci"
@@ -18,16 +19,12 @@
         "sd_mod"
         "sr_mod"
       ];
-      luks.devices."p0_d0" = {
-        device = "/dev/disk/by-label/p0_d0";
-        allowDiscards = true;
-      };
     };
   };
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=root"
@@ -37,7 +34,7 @@
     };
 
     "/home" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=home/active"
@@ -47,7 +44,7 @@
     };
 
     "/home/.snapshots" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=home/snapshots"
@@ -57,7 +54,7 @@
     };
 
     "/nix" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=nix"
@@ -67,7 +64,7 @@
     };
 
     "/persist" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       neededForBoot = true;
       options = [
@@ -78,7 +75,7 @@
     };
 
     "/persist/.snapshots" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=persist/snapshots"
@@ -88,7 +85,7 @@
     };
 
     "/var/local" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=var_local/active"
@@ -98,7 +95,7 @@
     };
 
     "/var/local/.snapshots" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       options = [
         "subvol=var_local/snapshots"
@@ -108,7 +105,7 @@
     };
 
     "/var/log" = {
-      device = "/dev/disk/by-label/pool0";
+      device = "/dev/disk/by-label/vg0-root";
       fsType = "btrfs";
       neededForBoot = true;
       options = [
@@ -118,17 +115,15 @@
       ];
     };
 
-    "/swap" = {
-      device = "/dev/disk/by-label/pool0";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
-
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
   };
+
+  swapDevices = [
+    { device = "/dev/disk/by-label/swap"; }
+  ]
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
