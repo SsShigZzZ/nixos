@@ -46,7 +46,6 @@
           inputs
           nixpkgs
           nixpkgs-unstable
-          nixos-hardware
           home-manager
           hyprland
           vars
