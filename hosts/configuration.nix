@@ -35,7 +35,7 @@ in
     sudo.wheelNeedsPassword = false;
   };
 
-  systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     btop
     coreutils
     git
