@@ -14,10 +14,10 @@ in
   #  #import ../modules/theming
   #);
 
-  users.users.${vars.user} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" ];
-  };
+  #users.users.${vars.user} = {
+  #  isNormalUser = true;
+  #  extraGroups = [ "wheel" "video" "audio" "camera" "networkmanager" "lp" "scanner" ];
+  #};
 
   services.automatic-timezoned.enable = true;
   i18n = {
@@ -85,4 +85,24 @@ in
     };
     stateVersion = "22.05";
   };
+
+  users.ldap = {
+    enable = true;
+    base = "dc=pask,dc=xyz";
+    server = "ldap://pask.xyz/";
+    useTLS = true;
+    extraConfig = ''
+      ldap_version 3
+      pam_password md5
+
+      # TOFIX: this does not work for some reason
+      # # https://serverfault.com/a/137996
+      # nss_override_attribute_value loginShell /run/current-system/sw/bin/bash
+    '';
+  };
+
+  ## evil, horrifying hack for dysfunctional nss_override_attribute_value
+  #systemd.tmpfiles.rules = [
+  #  "L /bin/bash - - - - /run/current-system/sw/bin/bash"
+  #];
 }
