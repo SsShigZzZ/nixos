@@ -8,11 +8,18 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
+      availableKernelModules = [
+        "ata_piix"
+        "ohci_pci"
+        "ehci_pci"
+        "ahci"
+        "sd_mod"
+        "sr_mod"
+      ];
       kernelModules = [ ];
       extraModulePackages = [ ];
       luks.devices."p0_d0" = {
-        device = "/dev/mapper/p0_d0";
+        device = "/dev/by-label/luks";
         allowDiscards = true;
       };
     };
@@ -20,7 +27,7 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=root"
@@ -30,7 +37,7 @@
     };
 
     "/home" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=home/active"
@@ -40,7 +47,7 @@
     };
 
     "/home/.snapshots" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=home/snapshots"
@@ -50,7 +57,7 @@
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=nix"
@@ -60,7 +67,7 @@
     };
 
     "/persist" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=persist/snapshots"
@@ -70,7 +77,7 @@
     };
 
     "/persist" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       neededForBoot = true;
       options = [
@@ -81,7 +88,7 @@
     };
 
     "/var/local" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=var_local/active"
@@ -91,7 +98,7 @@
     };
 
     "/var/local/.snapshots" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [
         "subvol=var_local/snapshots"
@@ -101,7 +108,7 @@
     };
 
     "/var/log" =
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       neededForBoot = true;
       options = [
@@ -112,13 +119,13 @@
     };
 
     "/swap" = {
-      device = "/dev/disk/by-uuid/208879e8-4181-447a-8d4d-d3730071f0f6";
+      device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
       options = [ "subvol=swap" ];
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/0DAB-8DE3";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
   };
