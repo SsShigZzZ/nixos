@@ -8,19 +8,11 @@
     impermanence.url = "github:nix-community/impermanence";
   };  
   
-  outputs = { nixpkgs ... }: {
+  outputs = { nixpkgs, ... }: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      nixos-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ({ config, pkgs, ... }:
-              imports =
-                [
-                  ./hosts/nixos
-                ];
-            }
-          )
-        ];
+        modules = [ ./hosts/nixos-vm ];
       };
     };
   };
