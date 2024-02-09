@@ -26,7 +26,7 @@ in
   desktop = lib.nixosSystem {
     inherit system;
     specialArgs = {
-      inherit inputs system unstable hyprland;
+      inherit inputs system unstable hyprland vars;
     };
     modules = [
       ./desktop
