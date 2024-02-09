@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { 
+  outputs = inputs@{ 
     self,
     nixpkgs,
     nixpkgs-unstable,
