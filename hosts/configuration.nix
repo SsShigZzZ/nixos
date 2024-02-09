@@ -89,7 +89,7 @@ in
   users.ldap = {
     enable = true;
     base = "dc=pask,dc=xyz";
-    server = "ldap://pask.xyz/";
+    server = "ldap://ldap.pask.xyz/";
     useTLS = true;
     extraConfig = ''
       ldap_version 3
