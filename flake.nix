@@ -39,7 +39,7 @@
     };
   in
   {
-    nixosConfigurations = {
+    nixosConfigurations = (
       import ./hosts {
         inherit (nixpkgs) lib;
         inherit 
@@ -52,6 +52,6 @@
           vars
         ;
       }
-    };
+    );
   };
 }
