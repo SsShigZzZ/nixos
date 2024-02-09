@@ -69,17 +69,17 @@
     "/persist" = {
       device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [
-        "subvol=persist/snapshots"
+        "subvol=persist/active"
         "compress=zstd"
         "noatime"
       ];
     };
 
-    "/persist" = {
+    "/persist/.snapshots" = {
       device = "/dev/disk/by-label/pool0";
       fsType = "btrfs";
-      neededForBoot = true;
       options = [
         "subvol=persist/snapshots"
         "compress=zstd"
