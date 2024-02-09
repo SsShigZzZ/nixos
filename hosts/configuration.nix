@@ -50,7 +50,7 @@ in
     unzip
     unrar
     zip
-  ]
+  ];
 
   nix = {
     settings ={
