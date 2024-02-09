@@ -94,6 +94,7 @@ in
     extraConfig = ''
       ldap_version 3
       pam_password md5
+      TLS_REQCERT never
 
       # TOFIX: this does not work for some reason
       # # https://serverfault.com/a/137996
