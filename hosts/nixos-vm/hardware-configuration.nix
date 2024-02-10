@@ -19,6 +19,10 @@
         "sd_mod"
         "sr_mod"
       ];
+      luks.devices."pool0_disk0" = {
+        device = "/dev/disk/by-label/pool0_disk0";
+        allowDiscards = true;
+      };
     };
   };
 
