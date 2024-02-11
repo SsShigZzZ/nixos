@@ -9,6 +9,7 @@
 
     initrd = {
       kernelModules = [ "dm-snapshot" ];
+      systemd.enable = true;
       availableKernelModules = [
         "ata_piix"
         "ohci_pci"
