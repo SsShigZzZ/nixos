@@ -24,7 +24,11 @@
     };
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+      };
+      timeout = 0;
       efi.canTouchEfiVariables = true;
     };
 
@@ -36,11 +40,6 @@
         "exfat"
         "ntfs"
     ];
-
-    systemd-boot = {
-      editor = false;
-      timeout = 0;
-    };
 
     plymouth = {
       enable = true;
