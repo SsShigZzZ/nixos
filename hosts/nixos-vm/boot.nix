@@ -40,9 +40,10 @@
     systemd-boot = {
       editor = false;
       timeout = 0;
-      plymouth = {
-        enable = true;
-      };
+    };
+
+    plymouth = {
+      enable = true;
     };
 
   };
