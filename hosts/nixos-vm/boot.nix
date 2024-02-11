@@ -21,11 +21,12 @@
         device = "/dev/disk/by-label/pool0_disk0";
         allowDiscards = true;
       };
-
-      loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
     };
+
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
   };
 }
