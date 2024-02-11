@@ -54,7 +54,7 @@
     };
   };
 
-  system.stateVersion = 24.05;
+  system.stateVersion = "24.05";
   time.timeZone = "Asia/Tokyo";
 
   users.users.matt = {
