@@ -6,26 +6,6 @@
 {
   imports = [ ];
 
-  boot = {
-    kernelModules = [ ];
-    extraModulePackages = [ ];
-    initrd = {
-      kernelModules = [ "dm-snapshot" ];
-      availableKernelModules = [
-        "ata_piix"
-        "ohci_pci"
-        "ehci_pci"
-        "ahci"
-        "sd_mod"
-        "sr_mod"
-      ];
-      luks.devices."pool0_disk0" = {
-        device = "/dev/disk/by-label/pool0_disk0";
-        allowDiscards = true;
-      };
-    };
-  };
-
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/vg0-root";

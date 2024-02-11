@@ -3,7 +3,9 @@
 {
   imports =
     [ 
-      ./hardware-configuration.nix
+      ../common.nix
+      ./boot.nix
+      ./filesystems.nix
     ];
 
   environment.systemPackages = with pkgs;
@@ -13,9 +15,6 @@
       vim
     ];
   
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   services = {
     openssh.enable = true;
   };
