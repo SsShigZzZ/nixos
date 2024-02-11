@@ -9,7 +9,6 @@
 
     initrd = {
       kernelModules = [ "dm-snapshot" ];
-      systemd.enable = true;
       availableKernelModules = [
         "ata_piix"
         "ohci_pci"
@@ -27,8 +26,11 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.editor = false;
       timeout = 0;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+      };
     };
 
     supportedFilesystems = [
