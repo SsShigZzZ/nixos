@@ -44,9 +44,6 @@
     plymouth = {
       enable = true;
       theme = "breeze";
-      themePackages = [
-        "breeze"
-      ];
     };
 
   };
