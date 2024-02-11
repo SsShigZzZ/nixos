@@ -26,12 +26,9 @@
     };
 
     loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-      };
-      timeout = 0;
       efi.canTouchEfiVariables = true;
+      systemd-boot.editor = false;
+      timeout = 0;
     };
 
     supportedFilesystems = [
@@ -42,11 +39,6 @@
         "exfat"
         "ntfs"
     ];
-
-    plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
 
   };
 }
