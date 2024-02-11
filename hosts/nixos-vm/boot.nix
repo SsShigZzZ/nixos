@@ -28,5 +28,22 @@
       efi.canTouchEfiVariables = true;
     };
 
+    supportedFilesystems = [
+        "btrfs"
+        "ext4"
+        "fat"
+        "vfat"
+        "exfat"
+        "ntfs"
+    ];
+
+    systemd-boot = {
+      editor = false;
+      timeout = 0;
+      plymouth = {
+        enable = true;
+      };
+    };
+
   };
 }
