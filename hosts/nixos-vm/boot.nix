@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelParams = [];
+    kernelParams = [ "quiet", "splash"];
     kernelModules = [];
     extraModulePackages = [];
     blacklistedKernelModules = [];
