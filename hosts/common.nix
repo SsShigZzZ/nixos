@@ -68,7 +68,7 @@
         #passwordFile = "/etc/ldap/bind.password";
       };
       daemon.enable = true;
-      server = "ldap://ldap.pask.xyz"
+      server = "ldap://ldap.pask.xyz";
     };
     #users.matt = {
     #  description = "Matt Pask";
