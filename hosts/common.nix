@@ -67,7 +67,7 @@
         #distinguishedName = "admin";
         #passwordFile = "/etc/ldap/bind.password";
       };
-      daemon.enable = true;
+      #daemon.enable = true;
       server = "ldap://ldap.pask.xyz";
     };
     #users.matt = {
