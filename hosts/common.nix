@@ -59,7 +59,18 @@
 
   users = {
     mutableUsers = true;
-    ldap.enable = true;
+    ldap = {
+      enable = true;
+      base = "dc=ldap,dc=pask,dc=xyz";
+      bind = {
+        distinguishedName = "";
+        #distinguishedName = "admin";
+        #passwordFile = "/etc/ldap/bind.password";
+      };
+      daemon.enable = true;
+      server = "ldap://ldap.pask.xyz"
+
+    };
 
     #users.matt = {
     #  description = "Matt Pask";
