@@ -58,7 +58,7 @@
   time.timeZone = "Asia/Tokyo";
 
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     ldap.enable = true;
 
     #users.matt = {
