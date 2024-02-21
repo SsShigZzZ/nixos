@@ -57,29 +57,30 @@
   system.stateVersion = "24.05";
   time.timeZone = "Asia/Tokyo";
 
-  users = {
-    mutableUsers = true;
-    ldap = {
-      enable = true;
-      base = "dc=ldap,dc=pask,dc=xyz";
-      bind = {
-        distinguishedName = "uid=root,cn=users,dc=ldap,dc=pask,dc=xyz";
-        passwordFile = "/etc/ldap.password";
-      };
-      useTLS = true;
-      #daemon.enable = true;
-      server = "ldap://ldap.pask.xyz";
-    };
-    #users.matt = {
-    #  description = "Matt Pask";
-    #  createHome = true;
-    #  home = "/home/matt";
-    #  shell = "/bin/sh";
-    #  group = "users";
-    #  extraGroups = [ "wheel" ];
-    #  isNormalUser = true;
-    #  hashedPassword = "$y$j9T$J/wsERmo/j/Pd6vtB8pFr/$K/HMsMb.frtYSpZO5Pp2ubD9vETkVTMYuyLI/9WEsJA";
-    #};
-  };
+#  TODO: I wanna set up LDAP auth..
+#  users = {
+#    mutableUsers = true;
+#    ldap = {
+#      enable = true;
+#      base = "dc=ldap,dc=pask,dc=xyz";
+#      bind = {
+#        distinguishedName = "uid=root,cn=users,dc=ldap,dc=pask,dc=xyz";
+#        passwordFile = "/etc/ldap.password";
+#      };
+#      useTLS = true;
+#      #daemon.enable = true;
+#      server = "ldap://ldap.pask.xyz";
+#    };
+#    #users.matt = {
+#    #  description = "Matt Pask";
+#    #  createHome = true;
+#    #  home = "/home/matt";
+#    #  shell = "/bin/sh";
+#    #  group = "users";
+#    #  extraGroups = [ "wheel" ];
+#    #  isNormalUser = true;
+#    #  hashedPassword = "$y$j9T$J/wsERmo/j/Pd6vtB8pFr/$K/HMsMb.frtYSpZO5Pp2ubD9vETkVTMYuyLI/9WEsJA";
+#    #};
+#  };
 
 }
