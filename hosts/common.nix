@@ -66,6 +66,7 @@
         distinguishedName = "uid=root,cn=users,dc=ldap,dc=pask,dc=xyz";
         passwordFile = "/etc/ldap.password";
       };
+      useTLS = true;
       #daemon.enable = true;
       server = "ldap://ldap.pask.xyz";
     };
