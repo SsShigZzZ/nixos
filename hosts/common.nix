@@ -63,7 +63,7 @@
       enable = true;
       base = "dc=ldap,dc=pask,dc=xyz";
       bind = {
-        distinguishedName = "root";
+        distinguishedName = "uid=root,cn=users,dc=ldap,dc=pask,dc=xyz";
         passwordFile = "/etc/ldap.password";
       };
       #daemon.enable = true;
