@@ -63,9 +63,8 @@
       enable = true;
       base = "dc=ldap,dc=pask,dc=xyz";
       bind = {
-        distinguishedName = "";
-        #distinguishedName = "admin";
-        #passwordFile = "/etc/ldap/bind.password";
+        distinguishedName = "root";
+        passwordFile = "/etc/ldap.password";
       };
       #daemon.enable = true;
       server = "ldap://ldap.pask.xyz";
