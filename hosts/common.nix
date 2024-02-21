@@ -69,9 +69,7 @@
       };
       daemon.enable = true;
       server = "ldap://ldap.pask.xyz"
-
     };
-
     #users.matt = {
     #  description = "Matt Pask";
     #  createHome = true;
