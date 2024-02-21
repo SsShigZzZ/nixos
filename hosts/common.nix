@@ -57,15 +57,20 @@
   system.stateVersion = "24.05";
   time.timeZone = "Asia/Tokyo";
 
-  users.users.matt = {
-    description = "Matt Pask";
-    createHome = true;
-    home = "/home/matt";
-    shell = "/bin/sh";
-    group = "users";
-    extraGroups = [ "wheel" ];
-    isNormalUser = true;
-    hashedPassword = "$y$j9T$J/wsERmo/j/Pd6vtB8pFr/$K/HMsMb.frtYSpZO5Pp2ubD9vETkVTMYuyLI/9WEsJA";
+  users = {
+    mutableUsers = false;
+    ldap.enable = true;
+
+    #users.matt = {
+    #  description = "Matt Pask";
+    #  createHome = true;
+    #  home = "/home/matt";
+    #  shell = "/bin/sh";
+    #  group = "users";
+    #  extraGroups = [ "wheel" ];
+    #  isNormalUser = true;
+    #  hashedPassword = "$y$j9T$J/wsERmo/j/Pd6vtB8pFr/$K/HMsMb.frtYSpZO5Pp2ubD9vETkVTMYuyLI/9WEsJA";
+    #};
   };
 
 }
