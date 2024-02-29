@@ -1,14 +1,7 @@
 {
   description = "Matt's home flake";  
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    impermanence.url = "github:nix-community/impermanence";
-  };  
-  
-  outputs = { self, unstable, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       nixos-vm = unstable.lib.nixosSystem {
         system = "x86_64-linux";
@@ -16,4 +9,24 @@
       };
     };
   };
+  
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+
+    impermanence.url = "github:nix-community/impermanence";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+
+  };  
+  
 }
