@@ -3,7 +3,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-      nixos-vm = unstable.lib.nixosSystem {
+      nixos-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./hosts/nixos-vm ];
       };
