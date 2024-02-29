@@ -2,10 +2,22 @@
   description = "Matt's home flake";  
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      nixos-vm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/nixos-vm ];
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib;
+      systems = [ "x86_64-linux" "aarch64-linux" ];
+      forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
+    in
+    {
+      nixosConfigurations = {
+        nixos-vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/nixos-vm ];
+        };
       };
     };
   };
