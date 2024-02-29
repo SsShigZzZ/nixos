@@ -2,6 +2,7 @@
   description = "Matt's home flake";
 
   outputs = { self, nixpkgs, ... }@inputs: let
+    inherit outputs;
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
