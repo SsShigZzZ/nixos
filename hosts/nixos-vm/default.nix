@@ -5,15 +5,11 @@
     ../common
   ];
 
-  virtualisation.virtualbox.guest.enable = true;
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-
   boot = {
     kernelParams = [ "quiet" "splash"];
     kernelModules = [];
     extraModulePackages = [];
     blacklistedKernelModules = [];
-
     initrd = {
       kernelModules = [ "dm-snapshot" ];
       availableKernelModules = [
@@ -24,13 +20,11 @@
         "sd_mod"
         "sr_mod"
       ];
-
       luks.devices."pool0_disk0" = {
         device = "/dev/disk/by-label/pool0_disk0";
         allowDiscards = true;
       };
     };
-
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 0;
@@ -39,7 +33,6 @@
         editor = false;
       };
     };
-
     supportedFilesystems = [
         "btrfs"
         "ext4"
@@ -48,7 +41,6 @@
         "exfat"
         "ntfs"
     ];
-
   };
 
   networking.useDHCP = lib.mkDefault true;
