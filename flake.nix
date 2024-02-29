@@ -10,6 +10,7 @@
       nixos-vm = nixpkgs.lib.nixosSystem {
         modules = [ ./hosts/nixos-vm ];
         specialArgs = { inherit inputs outputs; };
+        system = "x86_64-linux";
       };
 
     };
