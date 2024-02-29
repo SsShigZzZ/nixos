@@ -11,6 +11,7 @@
       config.allowUnfree = true;
     });
   in {
+    inherit lib;
     nixosConfigurations = {
 
       nixos-vm = nixpkgs.lib.nixosSystem {
