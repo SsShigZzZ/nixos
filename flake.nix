@@ -1,10 +1,12 @@
 {
   description = "Matt's home flake";
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: let
+    lib = nixpkgs.lib;
+  in {
     nixosConfigurations = {
 
-      nixos-vm = lib.nixosSystem {
+      nixos-vm = nixpkgs.lib.nixosSystem {
         modules = [ ./hosts/nixos-vm ];
         specialArgs = { inherit inputs outputs; };
       };
