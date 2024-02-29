@@ -4,6 +4,12 @@
   outputs = { self, nixpkgs, ... }@inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib;
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
+    pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    });
   in {
     nixosConfigurations = {
 
