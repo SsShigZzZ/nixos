@@ -5,9 +5,14 @@
   
   environment.systemPackages = with pkgs;
     [
+      dmidecode
       git
       htop
+      rsync
+      tree
+      unzip
       vim
+      wget
     ];
   
   services = {
