@@ -1,7 +1,7 @@
 {
   description = "Matt's home flake";  
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
