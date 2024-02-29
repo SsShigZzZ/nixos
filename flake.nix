@@ -14,7 +14,7 @@
     inherit lib;
     nixosModules = import ./modules;
     overlays = import ./overlays { inherit inputs outputs; };
-    #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
     nixosConfigurations = {
