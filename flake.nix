@@ -8,7 +8,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };  
   
-  outputs = { unstable, ... }: {
+  outputs = { self, unstable, ... }@inputs: {
     nixosConfigurations = {
       nixos-vm = unstable.lib.nixosSystem {
         system = "x86_64-linux";
